@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita Médica</title>
+</head>
+<body>
+  <header class="encabezado-logo">
+    <img src="logo.png" alt="Logo 1" onmouseover="cambiarImagen()" onmouseout="volverImagen()" id="imagen">
+    <h1>SITIO WEB DE CITA MÉDICA</h1>
+    <img src="logo.png" alt="Logo 2" class="logo-estatico">
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">INICIO</a></li>
+      <li><a href="Acerca de.html">ACERCA DE</a></li>
+      <li><a href="agendar.html">AGENDAR CITA</a></li>
+      <li><a href="Atencion medica.html">ATENCIÓN MÉDICA</a></li>
+    <li><a href="SabiasQue.html">SABIAS QUE</a></li>
+    </ul>
+  </nav>
+   <h1>Agendar Cita Médica de Forma Presencial</h1>
+    
+  <section class="agenda">
+  <h4>Para agendar tu cita médica de manera presencial, sigue los siguientes pasos:</h4>
+  <ol>
+    <li><strong>Visita el consultorio:</strong> Dirígete al consultorio médico que deseas agendar tu cita.</li>
+    <li><strong>Consulta la disponibilidad:</strong> Pregunta por la disponibilidad de citas en la fecha y hora que prefieras.</li>
+    <li><strong>Proporciona tus datos:</strong> El personal del consultorio te pedirá tu nombre completo, número de teléfono y la especialidad médica que necesitas.</li>
+    <li><strong>Elige la especialidad:</strong> Asegúrate de indicar correctamente la especialidad médica que necesitas, como consulta general, pediatría, ginecología, etc.</li>
+    <li><strong>Confirma tu cita:</strong> Después de proporcionar tus datos y elegir la fecha, recibirás la confirmación de tu cita presencial.</li>
+  </ol>
+
+  <p>¡Listo! Ahora solo debes acudir al consultorio el día y hora que acordaste para tu cita médica.</p>
+  </section>
+  <h1>Agendar Cita Médica</h1>
+  <center>
+  <h4>Esta seria la propuesta de mejora que se tiene para la clinica</h4>
+  </center>
+  <section class="formulario">
+  <center>
+  <form action="#" method="post">
+    <table class="form-table">
+      <tr>
+        <td><label for="nombre">Nombre completo:</label></td>
+        <td><input type="text" id="nombre" name="nombre" onkeydown="mostrarTecla()" required></td>
+      </tr>
+      <tr>
+        <td><label for="telefono">Número de teléfono:</label></td>
+        <td><input type="tel" id="telefono" name="telefono" required></td>
+      </tr>
+      <tr>
+        <td><label for="email">Correo electrónico:</label></td>
+        <td><input type="email" id="email" name="email" required></td>
+      </tr>
+      <tr>
+        <td><label for="fecha">Fecha de la cita:</label></td>
+        <td><input type="date" id="fecha" name="fecha" required></td>
+      </tr>
+      <tr>
+        <td><label for="hora">Hora preferida:</label></td>
+        <td><input type="time" id="hora" name="hora" required></td>
+      </tr>
+      <tr>
+        <td><label for="especialidad">Especialidad:</label></td>
+        <td>
+          <select id="especialidad" name="especialidad" onchange="mostrarEspecialidad()" required>
+            <option value="general">Consulta General</option>
+            <option value="Atencion Preventiva">Atencion Preventiva</option>
+            <option value="Enfermedades respiratorias">Enfermedades respiratorias</option>
+            <option value="psicología">psicología</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="motivo">Motivo de la consulta:</label></td>
+        <td><textarea id="motivo" name="motivo" rows="4" required></textarea></td>
+      </tr>
+      <tr>
+        <td><label for="medicamentos">¿Está tomando algún medicamento actualmente?</label></td>
+        <td><input type="text" id="medicamentos" name="medicamentos"></td>
+      </tr>
+      <tr>
+        <td><label for="historial">¿Tiene algún historial médico relevante?</label></td>
+        <td><textarea id="historial" name="historial" rows="4"></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="submit-button">
+          <center>
+          <button type="button" onclick="mensaje()">Agendar Cita</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <p id="especialidadSeleccionada"></p>
+  <p id="textoEscrito"></p>
+</section>
+  <br>
+  <br>
+  <footer>
+    <p>&copy;Alumnos: Marely Epifanio Moreno, Tania Esteban Maya, Sharon Naomi Marcos Contreras, Marcos Mendoza Macedonio, Samuel David Navarrete Eleuterio,
+       Luis Daniel Perez Garcia Clínica Médica de Santa Cruz Tepexpan- © 2025Todos los derechos reservados. Política de privacidad | Términos y condiciones</p>
+  </footer>
+
+  <script>
+    function mensaje() {
+      // Validar que todos los campos requeridos estén llenos
+      var nombre = document.getElementById('nombre').value;
+      var telefono = document.getElementById('telefono').value;
+      var email = document.getElementById('email').value;
+      var fecha = document.getElementById('fecha').value;
+      var hora = document.getElementById('hora').value;
+      var especialidad = document.getElementById('especialidad').value;
+      var motivo = document.getElementById('motivo').value;
+
+      if (nombre && telefono && email && fecha && hora && especialidad && motivo) {
+        // Si todos los campos están completos, mostrar mensaje de cita agendada
+        alert('Cita Agendada exitosamente!');
+      } else {
+        // Si falta algún campo, mostrar mensaje de error
+        alert('Por favor, llene todos los campos requeridos.');
+      }
+    }
+    function mostrarEspecialidad() {
+      var especialidad = document.getElementById('especialidad').value;
+      document.getElementById('especialidadSeleccionada').innerText = 'Especialidad seleccionada: ' + especialidad;
+    }
+    function mostrarTecla() {
+      var texto = document.getElementById('nombre').value;
+      document.getElementById('textoEscrito').innerText = 'Estás escribiendo: ' + texto;
+    }
+
+  </script>
+
+</body>
+</html>
