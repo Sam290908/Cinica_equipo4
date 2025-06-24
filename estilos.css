@@ -144,6 +144,11 @@ nav a {
   padding: 10px 15px;
   border-radius: 5px;
   transition: 0.3s ease;
+  white-space: normal; 
+  text-align: center; 
+  line-height: 1.2; 
+  min-width: 60px; 
+
 }
 
 nav a:hover {
